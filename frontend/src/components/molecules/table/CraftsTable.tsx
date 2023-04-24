@@ -11,7 +11,7 @@ export type CraftsListType = {
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
-      backgroundColor: theme.palette.common.white,
+      backgroundColor: theme.palette.common.black,
       color: theme.palette.common.white,
     },
     [`&.${tableCellClasses.body}`]: {
@@ -37,7 +37,7 @@ export type CraftsListType = {
             </TableRow>
           </TableHead>
           <TableBody>
-            {craft.map((craft: any, index: number) => (
+            {craft && craft.map((craft: any, index: number) => (
               <TableRow key={index}>
                 <TableCell sx={{ border: 1 }} align="left">
                   {craft.product_name}

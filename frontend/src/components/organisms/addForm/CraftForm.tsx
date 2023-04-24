@@ -35,7 +35,7 @@ const CraftForm = ({
     <Toolbar sx={{display:'flex', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center'}}>
     <ButtonBack
       name={"Go Back"}
-      redirectPath={"/Customers/list"}
+      redirectPath={"/customers/list"}
     />
   </Toolbar>  
   <Container sx={{marginTop: '60px'}}> 

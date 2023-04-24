@@ -37,7 +37,7 @@ export type AdminListType = {
             </TableRow>
           </TableHead>
           <TableBody>
-            {admin.map((admin: any, index: number) => (
+            {admin && admin.map((admin: any, index: number) => (
               <TableRow key={index}>
                 <TableCell sx={{ border: 1 }} align="left">
                   {admin.first_name}

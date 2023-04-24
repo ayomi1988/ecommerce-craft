@@ -32,7 +32,6 @@ export type OrderListType = {
             <TableRow>
               <StyledTableCell>Customer Name</StyledTableCell>
               <StyledTableCell>Email</StyledTableCell>
-              <StyledTableCell>Number</StyledTableCell>
               <StyledTableCell>Order Number</StyledTableCell>
               <StyledTableCell>Product Name</StyledTableCell>
               <StyledTableCell>Price</StyledTableCell>
@@ -42,16 +41,28 @@ export type OrderListType = {
             </TableRow>
           </TableHead>
           <TableBody>
-            {order.map((customer: any, index: number) => (
+            {order && order.map((order: any, index: number) => (
               <TableRow key={index}>
                 <TableCell sx={{ border: 1 }} align="left">
-                  {customer.first_name + "" + customer.last_name}
+                  {order.first_name}
                 </TableCell>
                 <TableCell sx={{ border: 1 }} align="left">
-                  {customer.email}
+                  {order.email}
                 </TableCell>
                 <TableCell sx={{ border: 1 }} align="left">
-                  {customer.number}
+                  {order.order_number}
+                </TableCell>
+                <TableCell sx={{ border: 1 }} align="left">
+                  {order.product_name}
+                </TableCell>
+                <TableCell sx={{ border: 1 }} align="left">
+                  {order.price}
+                </TableCell>
+                <TableCell sx={{ border: 1 }} align="left">
+                  {order.quantity}
+                </TableCell>
+                <TableCell sx={{ border: 1 }} align="left">
+                  {order.total}
                 </TableCell>
                 <TableCell sx={{ border: 1 }} align="center">
                 <Grid container>

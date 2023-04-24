@@ -8,13 +8,13 @@ import { adminstore } from "./store/admin/index";
 import { craftstore } from "./store/craft/index";
 import { orderstore } from "./store/order/index";
 import * as Sentry from '@sentry/react';
-import { BrowserTracing } from '@sentry/tracing';
+//import BrowserTracingT  from '@sentry/tracing';
 
-Sentry.init({
-  dsn: "https://c96204075a774be0b15588daa3238a3c@o4504614049284096.ingest.sentry.io/4504614050988032",
-  integrations: [new BrowserTracing()],
-  tracesSampleRate: 1.0,
-});
+//Sentry.init({
+//  dsn: "https://c96204075a774be0b15588daa3238a3c@o4504614049284096.ingest.sentry.io/4504614050988032",
+//  integrations: [new BrowserTracingT()],
+//  tracesSampleRate: 1.0,
+//});
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

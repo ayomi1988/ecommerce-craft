@@ -13,7 +13,7 @@ const EmployeeListGrid = ({
   deleteCustomer,
   redirectToEdit,
 }: CustomertistType) => {
-  return customer.map((customer: any, index: number) => (
+  return customer && customer.map((customer: any, index: number) => (
     
 
 <Grid item md={3} key={index} data-cy="grid-item">

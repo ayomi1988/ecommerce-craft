@@ -14,7 +14,7 @@ describe("GET/crafts/customers", () => {
   });
 });
 
-describe("POST/employee", () => {
+describe("POST/crafts/customers", () => {
   const customerData = {
     "first_name": "jesttestinganaaaa",
     "last_name": "Fernand1o",

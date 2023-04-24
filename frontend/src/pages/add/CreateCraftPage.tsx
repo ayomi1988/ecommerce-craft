@@ -1,4 +1,4 @@
-import ValidationSchema from "../../Validation/CustomerSchema";
+import ValidationSchema from "../../Validation/CraftSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {AlertMessage} from '../../components/atoms/Alerts';
 import { useEffect } from "react";

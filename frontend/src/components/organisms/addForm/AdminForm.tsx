@@ -35,7 +35,7 @@ const AdminForm = ({
     <Toolbar sx={{display:'flex', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center'}}>
     <ButtonBack
       name={"Go Back"}
-      redirectPath={"/Admins/list"}
+      redirectPath={"/admins/list"}
     />
   </Toolbar>  
   <Container sx={{marginTop: '60px'}}> 

@@ -1,5 +1,4 @@
-import {Container, Grid, TableHead, TableRow, TableContainer, Table, TableBody, Paper, TableCell, tableCellClasses} from "@mui/material";
-import { styled } from '@mui/material/styles';
+import {Container, styled, Grid, TableHead, TableRow, TableContainer, Table, TableBody, Paper, TableCell, tableCellClasses} from "@mui/material";
 import { DeleteButton, ButtonEdit } from "../../atoms/Button"; 
 
 
@@ -30,16 +29,14 @@ export type CustomerListType = {
         <Table sx={{ minWidth: 700 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <StyledTableCell>First Name</StyledTableCell>
-              <StyledTableCell>Last Name</StyledTableCell>
+              <StyledTableCell>Customer Name</StyledTableCell>
               <StyledTableCell>Email</StyledTableCell>
               <StyledTableCell>password</StyledTableCell>
-              <StyledTableCell>Number</StyledTableCell>
               <StyledTableCell>Action</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {customer.map((customer: any, index: number) => (
+            {customer && customer.map((customer: any, index: number) => (
               <TableRow key={index}>
                 <TableCell sx={{ border: 1 }} align="left">
                   {customer.first_name + "" + customer.last_name}
@@ -48,7 +45,7 @@ export type CustomerListType = {
                   {customer.email}
                 </TableCell>
                 <TableCell sx={{ border: 1 }} align="left">
-                  {customer.number}
+                  {customer.password}
                 </TableCell>
                 <TableCell sx={{ border: 1 }} align="center">
                 <Grid container>

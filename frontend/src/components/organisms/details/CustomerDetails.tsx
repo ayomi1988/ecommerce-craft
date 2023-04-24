@@ -1,5 +1,8 @@
-import React, { useRef, useEffect } from "react";
-import { Grid, Stack } from "@mui/material";
+
+
+import React, { useRef, useEffect, useState } from "react";
+import  Grid  from "@mui/material/Grid";
+import  Stack  from "@mui/material/Stack";
 import { confirmAlert } from "react-confirm-alert";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../../store/customer/useDispatch";
@@ -35,6 +38,7 @@ export type CustomerList = {
 
 export default function CustomerData() {  
   const dispatch = useAppDispatch();
+  const [isView, setIsView] = useState(true);
   const navigate = useNavigate();
 
 
@@ -93,7 +97,12 @@ export default function CustomerData() {
   };
 
 
+ // changing grid to list and list to grid action
+
  
+ const ChangingView = () => {
+  setIsView(!isView);
+};
 
   if (loading) {
     return <Loader />;
@@ -113,5 +122,3 @@ export default function CustomerData() {
     </Grid>
   );
 };
-
-
