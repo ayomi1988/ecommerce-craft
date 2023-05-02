@@ -30,26 +30,16 @@ npm run test
 [https://documenter.getpostman.com/view/26058571/2s93CRKrH1#5af7d4d3-ca5a-44ba-8e05-a2772518cd70](https://documenter.getpostman.com/view/26058571/2s93JtQj2h#429850d1-dc6a-4544-9766-9dbb488a9670)
 
 
-# Frontend
+# Frontend - Local
 
-https://empreactfe.herokuapp.com/
-
-
-# Backend
-
-https://empreact.herokuapp.com/api/employees
+http://localhost:3000/crafts
 
 
-# high-level architecture diagram 
+# Backend - Local
 
-<a href="https://ibb.co/PCkygHc"><img src="https://i.ibb.co/zfdgZvX/high-level-architecture-diagram.png" alt="high-level-architecture-diagram" border="0"></a>
+http://localhost:3000/dashboard/
 
 
-# FE Folder structure
 
-```bash
-Atomic Architecture
-     
-```
-  
+
 
