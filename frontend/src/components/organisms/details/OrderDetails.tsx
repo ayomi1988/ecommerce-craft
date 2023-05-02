@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { Grid, Stack, Button } from "@mui/material";
 import { confirmAlert } from "react-confirm-alert";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../../../store/order/useDispatch";
+import { useAppDispatch } from "../../../store/useDispatch";
 import { fetchOrders, deleteOrder, fetchOrderById } from "../../../store/order/OrderSlice";
 import Loader from "../../atoms/Loader";
 import "react-confirm-alert/src/react-confirm-alert.css";
@@ -48,6 +48,7 @@ export default function OrderData() {
 
   const getOrdersLists = useRef(
     debounce(() => {      
+     // console.log(fetchOrders());
       dispatch(fetchOrders())
         .unwrap()
         .then((data) => {})
@@ -56,6 +57,7 @@ export default function OrderData() {
 
   useEffect(() => {
    // throw Error();
+  
     getOrdersLists();
   }, [getOrdersLists]);
 
@@ -96,7 +98,7 @@ export default function OrderData() {
 // redirect to list page into edit page
  
   const redirectToEdit = (id: string) => {    
-    navigate(`/orders/edit/${id}`);
+    navigate(`/dashboard/order/edit/${id}`);
   };
 
 

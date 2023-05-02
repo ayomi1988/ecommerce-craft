@@ -10,7 +10,7 @@ export default function MainLayout () {
     return ( 
         <ErrorBoundary>  
             <ToastContainer style={{ width: "90%" }}  />
-            <TitleBar/>
+         
             <Container sx={{marginTop: '60px'}}> <Outlet/> </Container>
             </ErrorBoundary>  
       

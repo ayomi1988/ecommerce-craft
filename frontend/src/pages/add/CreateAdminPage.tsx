@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container, Grid } from "@mui/material";
-import { useAppDispatch } from "../../store/admin/useDispatch";
+import { useAppDispatch } from "../../store/useDispatch";
 import { useSelector } from "react-redux";
 import AdminForm from "../../components/organisms/addForm/AdminForm";
 import { fetchAdminById, createAdmin, updateAdmin } from "../../store/admin/AdminSlice";

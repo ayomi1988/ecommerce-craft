@@ -6,7 +6,7 @@ import {ActionButton, ButtonBack} from "../../atoms/Button";
 
 
 
-type Customer = {
+type Craft = {
     _id?: string;
     product_name : string;
     price:  string;
@@ -17,13 +17,13 @@ type Customer = {
 type FormSubmitDataProps = {
   id?: string;
   formData: boolean;
-  errors: Partial<FieldErrorsImpl<Customer>>;
+  errors: Partial<FieldErrorsImpl<Craft>>;
   handleSubmit: FormEventHandler<HTMLFormElement> | undefined;  
-  control: Control<Customer> | undefined; 
+  control: Control<Craft> | undefined; 
   
 };
 
-const EditEmpForm = ({
+const EditCraftForm = ({
   handleSubmit,
   formData,
   id,
@@ -36,7 +36,7 @@ const EditEmpForm = ({
     <Toolbar sx={{display:'flex', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center'}}>
     <ButtonBack
       name={"Go Back"}
-      redirectPath={"/customers/list"}
+      redirectPath={"/dashboard"}
     />
   </Toolbar>  
   <Container sx={{marginTop: '60px'}}> 
@@ -44,25 +44,25 @@ const EditEmpForm = ({
       <Card>
         <CardContent>
           <InputField
-            label={"First Name"}
+            label={"Product Name"}
             titleName={"product_name"}
             control={control}
             error={errors?.product_name?.message}            
           />
           <InputField
-            label={"Last Name"}
+            label={"Price"}
             titleName={"price"}
             control={control}
             error={errors?.price?.message}           
           />
           <InputField
-            label={"Email"}
+            label={"Quantity"}
             titleName={"quantity"}
             control={control}
             error={errors?.quantity?.message}            
           />
           <InputField
-            label={"Password"}
+            label={"Description"}
             titleName={"description"}
             control={control}
             error={errors?.description?.message}            
@@ -76,4 +76,4 @@ const EditEmpForm = ({
   );
 };
 
-export default EditEmpForm;
+export default EditCraftForm;

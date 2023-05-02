@@ -5,9 +5,9 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container, Grid } from "@mui/material";
-import { useAppDispatch } from "../../store/craft/useDispatch";
+import { useAppDispatch } from "../../store/useDispatch";
 import { useSelector } from "react-redux";
-import EditEmpForm from "../../components/organisms/editForm/EditCraft";
+import EditCraftForm from "../../components/organisms/editForm/EditCraft";
 import { fetchCraftById, createCraft, updateCraft } from "../../store/craft/CraftSlice";
 import { unwrapResult } from "@reduxjs/toolkit";
 
@@ -31,7 +31,7 @@ export type StateValue = {
   crafts: CraftList;
 }
 
-const EditFormPage = () => {
+const EditCraftPage = () => {
   
   const navigate = useNavigate();
   const { id } = useParams();
@@ -91,7 +91,7 @@ if (singleRecord) {
     if (id) {
       await dispatch(updateCraft({ ...data, _id: id }));
       reset();
-      navigate("/crafts/list");
+      navigate("/dashboard");
       AlertMessage('updated Successfully','success');
     } 
   };
@@ -100,7 +100,7 @@ if (singleRecord) {
     <Grid container spacing={2}>
         
       <Container sx={{marginTop: '60px'}}> 
-        <EditEmpForm
+        <EditCraftForm
           handleSubmit={handleSubmit(onSubmit)}
           errors={errors}
           control={control}
@@ -112,4 +112,4 @@ if (singleRecord) {
   );
 };
 
-export default EditFormPage;
+export default EditCraftPage;

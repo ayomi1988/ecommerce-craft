@@ -5,7 +5,7 @@ import InputField from '../../molecules/inputField/orderInputFields';
 import {ActionButton, ButtonBack} from "../../atoms/Button";
 
 
-type Customer = {
+type Order = {
     _id?: string;
     first_name: string;
     email: string;
@@ -19,9 +19,9 @@ type Customer = {
 type FormSubmitDataProps = {
   id?: string;
   formData: boolean;
-  errors: Partial<FieldErrorsImpl<Customer>>;
+  errors: Partial<FieldErrorsImpl<Order>>;
   handleSubmit: FormEventHandler<HTMLFormElement> | undefined;  
-  control: Control<Customer> | undefined; 
+  control: Control<Order> | undefined; 
   
 };
 
@@ -35,12 +35,7 @@ const OrderForm = ({
 }: FormSubmitDataProps) => {
   return (
     <Grid item container spacing={2} data-cy="form">
-    <Toolbar sx={{display:'flex', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center'}}>
-    <ButtonBack
-      name={"Go Back"}
-      redirectPath={"/customers/list"}
-    />
-  </Toolbar>  
+    
   <Container sx={{marginTop: '60px'}}> 
     <form onSubmit={handleSubmit}  id="submitemp">
       <Card>

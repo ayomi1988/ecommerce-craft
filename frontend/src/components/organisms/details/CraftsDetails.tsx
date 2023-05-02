@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { Grid, Stack, Button } from "@mui/material";
 import { confirmAlert } from "react-confirm-alert";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../../../store/craft/useDispatch";
+import { useAppDispatch } from "../../../store/useDispatch";
 import { fetchCrafts, deleteCraft, fetchCraftById } from "../../../store/craft/CraftSlice";
 import Loader from "../../atoms/Loader";
 import "react-confirm-alert/src/react-confirm-alert.css";
@@ -12,7 +12,7 @@ import { useNavigate, Link } from "react-router-dom";
 import {AlertMessage} from '../../atoms/Alerts';
 import GridItem from '../../molecules/gridItem/GridItem';
 import CraftsListTable from '../../molecules/table/CraftsTable';
-import {ButtonGrid, ButtonList} from '../../atoms/Button'
+import {ButtonGrid, ButtonList, ButtonBack} from '../../atoms/Button'
 
 
 export type Craft = {
@@ -32,7 +32,7 @@ export type CraftList = {
   }
   
   export type StateValue = {
-    Crafts: CraftList
+    crafts: CraftList
   }
 
 export default function CraftsData() {  
@@ -57,7 +57,7 @@ export default function CraftsData() {
   }, [getCraftsLists]);
 
   const { data, loading } = useSelector(
-    (state: StateValue) => state.Crafts || {}
+    (state: StateValue) => state.crafts || {}
   );
 
 
@@ -93,7 +93,7 @@ export default function CraftsData() {
 // redirect to list page into edit page
  
   const redirectToEdit = (id: string) => {    
-    navigate(`/crafts/edit/${id}`);
+    navigate(`/dashboard/craft/edit/${id}`);
   };
 
 
@@ -111,7 +111,13 @@ export default function CraftsData() {
   return (
     <Grid data-cy="grid-container" container rowSpacing={3} columnSpacing={3}>
       <>
-      <Stack width="100%" direction="row" justifyContent="end" alignItems="end" spacing={2}>
+    
+      <Stack sx={{marginTop: '60px'}} width="100%" direction="row" justifyContent="end" alignItems="end" spacing={2}>
+      <ButtonBack
+      name={"Add A Craft"}
+      redirectPath={"/dashboard/craft/create"}
+    />
+    
       </Stack>
           <CraftsListTable
           craft={data}

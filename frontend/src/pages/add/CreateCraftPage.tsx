@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container, Grid } from "@mui/material";
-import { useAppDispatch } from "../../store/craft/useDispatch";
+import { useAppDispatch } from "../../store/useDispatch";
 import { useSelector } from "react-redux";
 import CraftForm from "../../components/organisms/addForm/CraftForm";
 import { fetchCraftById, createCraft, updateCraft } from "../../store/craft/CraftSlice";
@@ -88,7 +88,7 @@ const CraftAction = () => {
     } else {
       await dispatch(createCraft(data));
       reset();
-      navigate("/Craft/list");
+      navigate("/dashboard");
       AlertMessage('Customers Data Added Successfully','success');
     }
   };

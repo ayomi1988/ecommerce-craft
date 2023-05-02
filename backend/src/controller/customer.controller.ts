@@ -5,6 +5,7 @@ import {
   getCustomerByID,
   getAllCustomers,
   updateCustomerData,
+  customerUserLogin,
 } from "../service/customer.service";
 import {
   itemValidation,
@@ -112,10 +113,35 @@ const updateCustomer = async (req: Request, res: Response) => {
   }
 };
 
+
+/**
+ * 
+ * @param req 
+ * @param res 
+ */
+const loginCustomer = async (req: Request, res: any) => {
+  try {
+
+
+const {user_name , password} = req.body;
+
+console.log(user_name);
+
+console.log(password);
+
+    const data = await customerUserLogin(req.body);
+    successApiResponse(res, data, null, 200);
+  } catch (e) {
+    log.info(e);
+    errorsApiResponse(res, {}, "invalid login details", 401);
+  }
+};
+
 export {
   deleteACustomer,
   getAllCustomer,
   getcusById,
   createACustomer,
   updateCustomer,
+  loginCustomer,
 };

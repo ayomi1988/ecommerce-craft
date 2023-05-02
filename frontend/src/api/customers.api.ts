@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:8070/";
+export const BASE_URL = "http://localhost:8071/";
 
 export const CUSTOMER_GETALL_API = '/crafts/customers';
 export const CUSTOMER_GET_SINGLE_API = (empId:string = '') => `/crafts/customers/${empId}`;

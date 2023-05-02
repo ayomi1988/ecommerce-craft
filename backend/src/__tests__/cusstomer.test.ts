@@ -17,7 +17,7 @@ describe("GET/crafts/customers", () => {
 describe("POST/crafts/customers", () => {
   const customerData = {
     "first_name": "jesttestinganaaaa",
-    "last_name": "Fernand1o",
+    "user_name": "Fernand1o",
     "email": "jesttest@yahoo.com",
     "password": "ppppippp"
   };
@@ -37,7 +37,7 @@ describe("POST/crafts/customers", () => {
 describe("PUT/crafts/customers", () => {
   const customerData = {
     first_name: "Ayoupdate",
-    last_name: "Perera",
+    user_name: "Perera",
     email: "ayotest@gmail.com",
     password: "updatepw"
   };
@@ -67,7 +67,7 @@ describe("PUT/crafts/customers", () => {
 describe("DELETE/crafts/customers", () => {
   const customerData = {    
     first_name: "Ayomiii",
-    last_name: "Perera",
+    user_name: "Perera",
     email: "ayotest@gmail.com",
     password: "3454344",
   };

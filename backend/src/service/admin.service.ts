@@ -1,6 +1,8 @@
 import { Admins } from "../model/admin.model";
 import { log } from "../logs/logger";
-import { Admin, Adminlogin } from "../interface/interface";
+import { Admin } from "../interface/interface";
+import { isEmpty } from "cypress/types/lodash";
+var md5 = require('md5');
 
 /**
  * Delete itesm from DB by id
@@ -55,6 +57,35 @@ const getAdminByID = async (id: string) => {
   }
 };
 
+const adminUserLogin = async (value: { user_name: any; password: any; }) => {
+  try {
+    const { user_name, password } = value;
+    const singleAdmin = await Admins.findOne({ "user_name": user_name, "password": md5(password) } ).exec();
+    if (!singleAdmin) {
+      throw Error;
+    }else{
+
+      console.log({singleAdmin});
+
+      const { _id, first_name, email } =
+        singleAdmin;
+      return {
+        id: _id,
+        first_name: first_name,
+        user_name: user_name,
+        email: email,
+  
+      };
+
+    }
+
+  } catch (e) {
+    throw Error;
+    log.info(e);
+  }
+};
+
+
 /**
  * Create item in DB
  * @param object value
@@ -68,7 +99,7 @@ const createAdmin = async (value: Admin) => {
       first_name: first_name,
       user_name: user_name,
       email: email,
-      password: password
+      password: md5(password)
     });
 
     return await newAdmin.save();
@@ -115,30 +146,13 @@ const updateAdminData = async (value: Admin, id: string) => {
 };
 
 
-/**
- * Create item in DB
- * @param object value
- * @returns
- */
-const loginAdmin = async (value: Adminlogin) => {
-  const { user_name, password } = value;
 
-  try {
-    const newAdminlogin = new Admins({
-      user_name: user_name,
-      password: password
-    });
-
-    return await newAdminlogin.save();
-  } catch (e) {
-    log.info(e);
-  }
-};
 export {
   deleteAdmin,
   getAllAdmins,
   getAdminByID,
   createAdmin,
   updateAdminData,
-  loginAdmin,
+  adminUserLogin
+ 
 };

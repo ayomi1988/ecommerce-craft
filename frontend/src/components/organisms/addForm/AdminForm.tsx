@@ -2,7 +2,7 @@ import { CardContent, Card, Grid, Toolbar, Container } from "@mui/material";
 import { Control, FieldErrorsImpl } from "react-hook-form";
 import { FormEventHandler } from "react";
 import InputField from '../../molecules/inputField/adminInputFields';
-import {ActionButton, ButtonBack} from "../../atoms/Button";
+import {SignupButton, ButtonBack} from "../../atoms/Button";
 
 
 type Admin = {
@@ -32,10 +32,10 @@ const AdminForm = ({
 }: FormSubmitDataProps) => {
   return (
     <Grid item container spacing={2} data-cy="form">
-    <Toolbar sx={{display:'flex', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center'}}>
+    <Toolbar sx={{display:'flex', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'}}>
     <ButtonBack
-      name={"Go Back"}
-      redirectPath={"/admins/list"}
+      name={"I Already Have a Login"}
+      redirectPath={"/dashboard/login"}
     />
   </Toolbar>  
   <Container sx={{marginTop: '60px'}}> 
@@ -66,7 +66,7 @@ const AdminForm = ({
             control={control}
             error={errors?.password?.message}            
           />
-        <ActionButton formData={formData} id={id}/>
+        <SignupButton formData={formData} id={id}/>
         </CardContent>
       </Card>
     </form>

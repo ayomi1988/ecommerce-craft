@@ -2,24 +2,30 @@ import React, { useRef, useEffect, useState } from "react";
 import { Grid, Stack, Button } from "@mui/material";
 import { confirmAlert } from "react-confirm-alert";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../../../store/admin/useDispatch";
-import { fetchAdmins, deleteAdmin, fetchAdminById } from "../../../store/admin/AdminSlice";
+import { useAppDispatch } from "../../../store/useDispatch";
+import { fetchCrafts, deleteCraft, fetchCraftById } from "../../../store/craft/CraftSlice";
 import Loader from "../../atoms/Loader";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { unwrapResult } from "@reduxjs/toolkit";
 import { debounce } from "lodash";
 import { useNavigate, Link } from "react-router-dom";
 import {AlertMessage} from '../../atoms/Alerts';
-import GridItem from '../../molecules/gridItem/GridItem';
+import CraftGrid from '../../molecules/gridItem/GridItem';
+import OrderAction from '../../../pages/add/CreateOrder';
 import {ButtonGrid, ButtonList} from '../../atoms/Button'
 
 
 export type clientView = {
     _id?: string;
+    product_name : string;
+    price:  string;
+    quantity:  string;
+    description: string;
+
     first_name: string;
     email: string;
-    user_name: string;
-    password: string;
+    order_number : string;
+    total: string;
   }
 
 export type clientViewList = {
@@ -31,10 +37,10 @@ export type clientViewList = {
   }
   
   export type StateValue = {
-    admins: clientViewList
+    crafts: clientViewList
   }
 
-export default function AdminData() {  
+export default function ClientData() {  
   const dispatch = useAppDispatch();
   const [isView, setIsView] = useState(true);
   const navigate = useNavigate();
@@ -42,9 +48,9 @@ export default function AdminData() {
 
  //get Admin list
 
-  const getAdminsLists = useRef(
-    debounce(() => {      
-      dispatch(fetchAdmins())
+ const getCraftsLists = useRef(
+  debounce(() => {      
+    dispatch(fetchCrafts())
         .unwrap()
         .then((data) => {})
     }, 600)
@@ -52,47 +58,21 @@ export default function AdminData() {
 
   useEffect(() => {
    // throw Error();
-    getAdminsLists();
-  }, [getAdminsLists]);
+    getCraftsLists();
+  }, [getCraftsLists]);
 
   const { data, loading } = useSelector(
-    (state: StateValue) => state.admins || {}
+    (state: StateValue) => state.crafts || {}
   );
 
 
-// delete Admin data by id
 
-  const deleteHandler = (id: string) => {
-    confirmAlert({
-      title: "Are you sure? ",
-      message: "Click Delete to confirm",
-      buttons: [
-        {
-          label: "Delete",
-          onClick: () => deleteAction(id),
-        },
-        {
-          label: "Cancel",
-          onClick: () => {},
-        },
-      ],
-    });
-  };
-
-  const deleteAction = (id: string) => {
-    dispatch(deleteAdmin(id))
-      .then(unwrapResult)
-      .then((data: any) => {
-        dispatch(fetchAdmins());
-        AlertMessage('Successfully deleted !','success');
-      })
-  };
 
  
 // redirect to list page into edit page
  
-  const redirectToEdit = (id: string) => {    
-    navigate(`/admin/edit/${id}`);
+  const redirectToDetail = (id: string) => {    
+    navigate(`/craft/detail/${id}`);
   };
 
 
@@ -107,12 +87,12 @@ export default function AdminData() {
       <>
       <Stack width="100%" direction="row" justifyContent="end" alignItems="end" spacing={2}>
       </Stack>
-      <GridItem
-          customer={data}
-          deleteCustomer={deleteHandler}
-          redirectToEdit={redirectToEdit}
-        ></GridItem>
+      <CraftGrid
+          craft={data}
+          redirectToDetail={redirectToDetail}
+        ></CraftGrid>
         </>
+        
     </Grid>
   );
 };

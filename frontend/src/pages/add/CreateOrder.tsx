@@ -5,10 +5,11 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container, Grid } from "@mui/material";
-import { useAppDispatch } from "../../store/order/useDispatch";
+import { useAppDispatch } from "../../store/useDispatch";
 import { useSelector } from "react-redux";
 import OrderForm from "../../components/organisms/addForm/OrderForm";
 import { fetchOrderById, createOrder, updateOrder } from "../../store/order/OrderSlice";
+import { fetchCraftById } from "../../store/craft/CraftSlice";
 import { unwrapResult } from "@reduxjs/toolkit";
 
 export type Order = {
@@ -53,15 +54,6 @@ const OrderAction = () => {
     setError,
   } = useForm<Order>({
     resolver: yupResolver(ValidationSchema),
-    defaultValues: {
-      first_name: "",
-      email: "",
-      order_number: "",
-      price: "",
-      product_name: "",
-      quantity: "",
-      total: "",
-    },
   });
 
 //get details

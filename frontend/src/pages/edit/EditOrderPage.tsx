@@ -5,9 +5,9 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container, Grid } from "@mui/material";
-import { useAppDispatch } from "../../store/order/useDispatch";
+import { useAppDispatch } from "../../store/useDispatch";
 import { useSelector } from "react-redux";
-import EditEmpForm from "../../components/organisms/editForm/EditOrder";
+import EditOrderForm from "../../components/organisms/editForm/EditOrder";
 import { fetchOrderById, createOrder, updateOrder } from "../../store/order/OrderSlice";
 import { unwrapResult } from "@reduxjs/toolkit";
 
@@ -35,7 +35,7 @@ export type StateValue = {
   orders: OrderList;
 }
 
-const EditFormPage = () => {
+const EditOrderPage = () => {
   
   const navigate = useNavigate();
   const { id } = useParams();
@@ -102,7 +102,7 @@ if (singleRecord) {
     if (id) {
       await dispatch(updateOrder({ ...data, _id: id }));
       reset();
-      navigate("/orders/list");
+      navigate("/dashboard");
       AlertMessage('updated Successfully','success');
     } 
   };
@@ -111,7 +111,7 @@ if (singleRecord) {
     <Grid container spacing={2}>
         
       <Container sx={{marginTop: '60px'}}> 
-        <EditEmpForm
+        <EditOrderForm
           handleSubmit={handleSubmit(onSubmit)}
           errors={errors}
           control={control}
@@ -123,4 +123,4 @@ if (singleRecord) {
   );
 };
 
-export default EditFormPage;
+export default EditOrderPage;

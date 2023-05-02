@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { Grid, Stack, Button } from "@mui/material";
 import { confirmAlert } from "react-confirm-alert";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../../../store/admin/useDispatch";
+import { useAppDispatch } from "../../../store/useDispatch";
 import { fetchAdmins, deleteAdmin, fetchAdminById } from "../../../store/admin/AdminSlice";
 import Loader from "../../atoms/Loader";
 import "react-confirm-alert/src/react-confirm-alert.css";
@@ -93,7 +93,7 @@ export default function AdminData() {
 // redirect to list page into edit page
  
   const redirectToEdit = (id: string) => {    
-    navigate(`/admin/edit/${id}`);
+    navigate(`/dashboard/admin/edit/${id}`);
   };
 
 

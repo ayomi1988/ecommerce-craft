@@ -1,6 +1,7 @@
   
 import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
+import { Container } from "@mui/material";
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
@@ -8,6 +9,7 @@ import CustomerDetails from "../components/organisms/details/CustomerDetails";
 import OrderDetails from "../components/organisms/details/OrderDetails";
 import CraftsDetails from "../components/organisms/details/CraftsDetails";
 import AdminDetails from "../components/organisms/details/AdminDetails";
+import TitleBar from "../components/molecules/titleBar/BackEndTitlebar";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -50,7 +52,10 @@ export default function DashBoard() {
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Container sx={{width: '100%'}}>
+ 
+    <Box sx={{ width: '100%', marginTop: '60px' }}>
+     
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Customer Details" {...a11yProps(0)} />
@@ -72,6 +77,7 @@ export default function DashBoard() {
             <AdminDetails />
       </TabPanel>
     </Box>
+    </Container>
   );
 }
 

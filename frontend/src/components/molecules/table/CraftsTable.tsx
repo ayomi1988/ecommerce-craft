@@ -34,6 +34,7 @@ export type CraftsListType = {
               <StyledTableCell>Price</StyledTableCell>
               <StyledTableCell>Quantity</StyledTableCell>
               <StyledTableCell>Description</StyledTableCell>
+              <StyledTableCell>Action</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>

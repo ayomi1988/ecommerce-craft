@@ -9,7 +9,7 @@ import {ActionButton, ButtonBack} from "../../atoms/Button";
 type Customer = {
     _id?: string;
     first_name: string;
-    last_name: string;
+    user_name: string;
     email: string;
     password: string;
   }
@@ -23,7 +23,7 @@ type FormSubmitDataProps = {
   
 };
 
-const EditEmpForm = ({
+const EditCustomerForm = ({
   handleSubmit,
   formData,
   id,
@@ -36,7 +36,7 @@ const EditEmpForm = ({
     <Toolbar sx={{display:'flex', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center'}}>
     <ButtonBack
       name={"Go Back"}
-      redirectPath={"/customers/list"}
+      redirectPath={"/dashboard"}
     />
   </Toolbar>  
   <Container sx={{marginTop: '60px'}}> 
@@ -53,7 +53,7 @@ const EditEmpForm = ({
             label={"Last Name"}
             titleName={"last_name"}
             control={control}
-            error={errors?.last_name?.message}           
+            error={errors?.user_name?.message}           
           />
           <InputField
             label={"Email"}
@@ -76,4 +76,4 @@ const EditEmpForm = ({
   );
 };
 
-export default EditEmpForm;
+export default EditCustomerForm;

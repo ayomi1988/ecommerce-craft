@@ -9,7 +9,7 @@ const OrderSchema = new Schema<Order>(
         price:  { type: String, required: true },
         product_name:  { type: String, required: true },
         quantity:  { type: String, required: true },
-        total:  { type: String, required: true },
+        total:  { type: String, required: true },    
         email: {
             type: String,
             required: true,

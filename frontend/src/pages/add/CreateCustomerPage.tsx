@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container, Grid } from "@mui/material";
-import { useAppDispatch } from "../../store/customer/useDispatch";
+import { useAppDispatch } from "../../store/useDispatch";
 import { useSelector } from "react-redux";
 import CustomerForm from "../../components/organisms/addForm/CustomerForm";
 import { fetchCustomerById, createCustomer, updateCustomer } from "../../store/customer/CustomerSlice";
@@ -14,7 +14,7 @@ import { unwrapResult } from "@reduxjs/toolkit";
 export type Customer = {
   _id?: string;
   first_name: string;
-  last_name: string;
+  user_name: string;
   email: string;
   password: string;
 }
@@ -52,7 +52,7 @@ const CustomerAction = () => {
     resolver: yupResolver(ValidationSchema),
     defaultValues: {
       first_name: "",
-      last_name: "",
+      user_name: "",
       email: "",
       password: "",
     },
@@ -69,11 +69,11 @@ const CustomerAction = () => {
         });
 
       if (singleRecord) {
-        const { first_name, last_name, email, password } =
+        const { first_name, user_name, email, password } =
           singleRecord;
         const data = {
           first_name,
-          last_name,
+          user_name,
           email,
           password,
         };
@@ -88,7 +88,7 @@ const CustomerAction = () => {
     } else {
       await dispatch(createCustomer(data));
       reset();
-      navigate("/Customers/list");
+      navigate("/crafts/signin");
       AlertMessage('Customers Data Added Successfully','success');
     }
   };

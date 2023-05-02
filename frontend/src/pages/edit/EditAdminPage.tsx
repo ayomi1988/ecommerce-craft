@@ -5,9 +5,9 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container, Grid } from "@mui/material";
-import { useAppDispatch } from "../../store/admin/useDispatch";
+import { useAppDispatch } from "../../store/useDispatch";
 import { useSelector } from "react-redux";
-import EditEmpForm from "../../components/organisms/editForm/EditAdmin";
+import EditAdminForm from "../../components/organisms/editForm/EditAdmin";
 import { fetchAdminById, createAdmin, updateAdmin } from "../../store/admin/AdminSlice";
 import { unwrapResult } from "@reduxjs/toolkit";
 
@@ -31,7 +31,7 @@ export type StateValue = {
   admins: AdminList;
 }
 
-const EditFormPage = () => {
+const EditAdminPage = () => {
   
   const navigate = useNavigate();
   const { id } = useParams();
@@ -91,7 +91,7 @@ if (singleRecord) {
     if (id) {
       await dispatch(updateAdmin({ ...data, _id: id }));
       reset();
-      navigate("/admins/list");
+      navigate("/dashboard");
       AlertMessage('updated Successfully','success');
     } 
   };
@@ -100,7 +100,7 @@ if (singleRecord) {
     <Grid container spacing={2}>
         
       <Container sx={{marginTop: '60px'}}> 
-        <EditEmpForm
+        <EditAdminForm
           handleSubmit={handleSubmit(onSubmit)}
           errors={errors}
           control={control}
@@ -112,4 +112,4 @@ if (singleRecord) {
   );
 };
 
-export default EditFormPage;
+export default EditAdminPage;

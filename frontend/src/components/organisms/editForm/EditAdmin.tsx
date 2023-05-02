@@ -6,7 +6,7 @@ import {ActionButton, ButtonBack} from "../../atoms/Button";
 
 
 
-type Customer = {
+type Admin = {
     _id?: string;
     first_name: string;
     email: string;
@@ -17,13 +17,13 @@ type Customer = {
 type FormSubmitDataProps = {
   id?: string;
   formData: boolean;
-  errors: Partial<FieldErrorsImpl<Customer>>;
+  errors: Partial<FieldErrorsImpl<Admin>>;
   handleSubmit: FormEventHandler<HTMLFormElement> | undefined;  
-  control: Control<Customer> | undefined; 
+  control: Control<Admin> | undefined; 
   
 };
 
-const EditEmpForm = ({
+const EditAdminForm = ({
   handleSubmit,
   formData,
   id,
@@ -36,7 +36,7 @@ const EditEmpForm = ({
     <Toolbar sx={{display:'flex', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center'}}>
     <ButtonBack
       name={"Go Back"}
-      redirectPath={"/customers/list"}
+      redirectPath={"/dashboard"}
     />
   </Toolbar>  
   <Container sx={{marginTop: '60px'}}> 
@@ -76,4 +76,4 @@ const EditEmpForm = ({
   );
 };
 
-export default EditEmpForm;
+export default EditAdminForm;

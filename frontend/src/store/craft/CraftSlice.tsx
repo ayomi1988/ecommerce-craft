@@ -57,7 +57,7 @@ export const fetchCraftById = createAsyncThunk(
 );
 
 const CraftSlice = createSlice({
-  name: "Craft",
+  name: "Product",
   initialState,
   reducers:{},
   extraReducers(builder) {

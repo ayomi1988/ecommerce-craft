@@ -5,7 +5,7 @@ import validator from 'validator';
 const CustomerSchema = new Schema<Customer>(
     {
         first_name :{type:String,required:true},
-        last_name: { type: String, required: true },
+        user_name: { type: String, required: true },
         email: {
             type: String,
             required: true,

@@ -1,19 +1,23 @@
-//import BasicTabs from '../components/organisms/AdminTabs';
-   
+ 
 import * as React from 'react';
 import Container from '@mui/material/Container';
-import AdminData from "../components/organisms/clientView/clientView";
+import Box from '@mui/material/Box';
+import ClientData from "../components/organisms/clientView/frontend";
+import DrawerAppBar from "../components/molecules/titleBar/Navigation";
 
 
-const clientView = () => {
-  return (
-    <Container sx={{marginTop: '60px', textAlign:"center", with: '100%'}}>
-          <AdminData />
+const frontView = () => {
+  return ( 
+    <Box>
+     <DrawerAppBar/>
+    <Container sx={{marginTop: '60px', textAlign:"center", with: '100%'}}>         
+          <ClientData />
     </Container>
+    </Box>
   );
 };
 
-export default clientView;
+export default frontView;
 
 
 

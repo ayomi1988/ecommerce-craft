@@ -3,10 +3,7 @@ import React from "react";
 import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
-import { customerstore } from "./store/customer/index";
-import { adminstore } from "./store/admin/index";
-import { craftstore } from "./store/craft/index";
-import { orderstore } from "./store/order/index";
+import { store } from "./store/index";
 import * as Sentry from '@sentry/react';
 //import BrowserTracingT  from '@sentry/tracing';
 
@@ -22,14 +19,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Provider store={customerstore}>
-      <Provider store={adminstore}>
-        <Provider store={craftstore}>
-          <Provider store={orderstore}>
+     <Provider store={store}>
             <App />
           </Provider>
-        </Provider>
-      </Provider>
-    </Provider>
   </React.StrictMode>
 );

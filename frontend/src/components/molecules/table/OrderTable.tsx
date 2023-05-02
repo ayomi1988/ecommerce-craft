@@ -24,6 +24,7 @@ export type OrderListType = {
     deleteOrder,
     redirectToEdit,
   }: OrderListType) => {
+    //console.log(order);
     return (
       <Container sx={{marginTop: '60px'}}> 
       <TableContainer component={Paper}>
@@ -37,7 +38,6 @@ export type OrderListType = {
               <StyledTableCell>Price</StyledTableCell>
               <StyledTableCell>Quantity</StyledTableCell>
               <StyledTableCell>Total Amount</StyledTableCell>
-              <StyledTableCell>Action</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -63,13 +63,6 @@ export type OrderListType = {
                 </TableCell>
                 <TableCell sx={{ border: 1 }} align="left">
                   {order.total}
-                </TableCell>
-                <TableCell sx={{ border: 1 }} align="center">
-                <Grid container>
-                    <Grid md={6}><DeleteButton onClick={deleteOrder} id={order._id} /></Grid>
-                    <Grid md={6}><ButtonEdit onClick={redirectToEdit} id={order._id} /></Grid>                 
-                </Grid>
-                
                 </TableCell>
               </TableRow>
             ))}

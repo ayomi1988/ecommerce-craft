@@ -25,11 +25,13 @@ export type CustomerListType = {
   }: CustomerListType) => {
     return (
       <Container sx={{marginTop: '60px'}}> 
+
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="simple table">
           <TableHead>
             <TableRow>
               <StyledTableCell>Customer Name</StyledTableCell>
+              <StyledTableCell>User Name</StyledTableCell>
               <StyledTableCell>Email</StyledTableCell>
               <StyledTableCell>password</StyledTableCell>
               <StyledTableCell>Action</StyledTableCell>
@@ -39,7 +41,10 @@ export type CustomerListType = {
             {customer && customer.map((customer: any, index: number) => (
               <TableRow key={index}>
                 <TableCell sx={{ border: 1 }} align="left">
-                  {customer.first_name + "" + customer.last_name}
+                  {customer.first_name}
+                </TableCell>
+                <TableCell sx={{ border: 1 }} align="left">
+                  {customer.user_name}
                 </TableCell>
                 <TableCell sx={{ border: 1 }} align="left">
                   {customer.email}

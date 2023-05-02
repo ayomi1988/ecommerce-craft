@@ -45,7 +45,7 @@ export const deleteOrder = createAsyncThunk(
 );
 
 export const fetchOrders = createAsyncThunk<Order[]>(
-  "/crafts/get/Orders",
+  "/crafts/get/crafts",
   getAllOrdersAPI
 );
 

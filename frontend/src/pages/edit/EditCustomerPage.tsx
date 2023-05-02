@@ -5,16 +5,16 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container, Grid } from "@mui/material";
-import { useAppDispatch } from "../../store/customer/useDispatch";
+import { useAppDispatch } from "../../store/useDispatch";
 import { useSelector } from "react-redux";
-import EditEmpForm from "../../components/organisms/editForm/EditCustomer";
+import EditCustomerForm from "../../components/organisms/editForm/EditCustomer";
 import { fetchCustomerById, createCustomer, updateCustomer } from "../../store/customer/CustomerSlice";
 import { unwrapResult } from "@reduxjs/toolkit";
 
 export type Customer = {
   _id?: string;
   first_name: string;
-  last_name: string;
+  user_name: string;
   email: string;
   password: string;
 }
@@ -31,7 +31,7 @@ export type StateValue = {
   customers: CustomerList;
 }
 
-const EditFormPage = () => {
+const EditCustomerPage = () => {
   
   const navigate = useNavigate();
   const { id } = useParams();
@@ -52,7 +52,7 @@ const EditFormPage = () => {
     resolver: yupResolver(ValidationSchema),
     defaultValues: {
       first_name: "",
-      last_name: "",
+      user_name: "",
       email: "",
       password: "",
     },
@@ -69,10 +69,10 @@ const EditFormPage = () => {
 
 if (singleRecord) {
 
-  const { first_name, last_name, email, password } = data;
+  const { first_name, user_name, email, password } = data;
   const dataa = {
     first_name,
-    last_name,
+    user_name,
     email,
     password,
   };
@@ -91,7 +91,7 @@ if (singleRecord) {
     if (id) {
       await dispatch(updateCustomer({ ...data, _id: id }));
       reset();
-      navigate("/customers/list");
+      navigate("/dashboard");
       AlertMessage('updated Successfully','success');
     } 
   };
@@ -100,7 +100,7 @@ if (singleRecord) {
     <Grid container spacing={2}>
         
       <Container sx={{marginTop: '60px'}}> 
-        <EditEmpForm
+        <EditCustomerForm
           handleSubmit={handleSubmit(onSubmit)}
           errors={errors}
           control={control}
@@ -112,4 +112,4 @@ if (singleRecord) {
   );
 };
 
-export default EditFormPage;
+export default EditCustomerPage;

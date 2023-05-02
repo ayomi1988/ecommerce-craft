@@ -5,6 +5,7 @@ import {
   getAdminByID,
   getAllAdmins,
   updateAdminData,
+  adminUserLogin,
 } from "../service/admin.service";
 import {
   adminValidation,
@@ -113,19 +114,26 @@ const updateAdmin = async (req: Request, res: Response) => {
   }
 };
 
-
-const loginAAdmin = async (req: Request, res: Response) => {
-  const { error, value } = adminloginUpdateSchemaValidation.validate(req.body);
-  const id = req.params.empId;
-  if (error) {
-    errorsApiResponse(res, error.details, "Validation failed.", 409);
-  }
+/**
+ * 
+ * @param req 
+ * @param res 
+ */
+const loginAdmin = async (req: Request, res: any) => {
   try {
-    await updateAdminData(value, id);
-    successApiResponse(res, "", "login  Successfully", 200);
+
+
+const {user_name , password} = req.body;
+
+console.log(user_name);
+
+console.log(password);
+
+    const data = await adminUserLogin(req.body);
+    successApiResponse(res, data, null, 200);
   } catch (e) {
     log.info(e);
-    errorsApiResponse(res, e);
+    errorsApiResponse(res, {}, "invalid login details", 401);
   }
 };
 
@@ -135,5 +143,6 @@ export {
   getadmById,
   createAAdmin,
   updateAdmin,
-  loginAAdmin,
+  loginAdmin
+
 };

@@ -5,7 +5,7 @@ import  Grid  from "@mui/material/Grid";
 import  Stack  from "@mui/material/Stack";
 import { confirmAlert } from "react-confirm-alert";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../../../store/customer/useDispatch";
+import { useAppDispatch } from "../../../store/useDispatch";
 import { fetchCustomers, deleteCustomer, } from "../../../store/customer/CustomerSlice";
 import Loader from "../../atoms/Loader";
 import "react-confirm-alert/src/react-confirm-alert.css";
@@ -15,11 +15,10 @@ import { useNavigate } from "react-router-dom";
 import {AlertMessage} from '../../atoms/Alerts';
 import CustomersListTable from '../../molecules/table/CustomersTable';
 
-
 export type Customer = {
     _id?: string;
     first_name: string;
-    last_name: string;
+    user_name: string;
     email: string;
     password: string;
   }
@@ -37,6 +36,7 @@ export type CustomerList = {
   }
 
 export default function CustomerData() {  
+  console.log(1);
   const dispatch = useAppDispatch();
   const [isView, setIsView] = useState(true);
   const navigate = useNavigate();
@@ -93,7 +93,7 @@ export default function CustomerData() {
 // redirect to list page into edit page
  
   const redirectToEdit = (id: string) => {    
-    navigate(`/customers/edit/${id}`);
+    navigate(`/dashboard/customer/edit/${id}`);
   };
 
 

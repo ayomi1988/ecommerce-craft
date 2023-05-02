@@ -1,7 +1,7 @@
 import Joi from "joi";
 const itemSchemaValidation = Joi.object({
   first_name: Joi.string().required(),
-  last_name: Joi.string(),
+  user_name: Joi.string(),
   email: Joi.string().email().required(),
   password: Joi.string().required(),
 });
@@ -10,7 +10,7 @@ const itemSchemaValidation = Joi.object({
 const itemUpdateSchemaValidation = Joi.object({
   _id:Joi.string(),
   first_name: Joi.string().optional(),
-  last_name: Joi.string().optional(),
+  user_name: Joi.string().optional(),
   email: Joi.string().email().optional(),
   password: Joi.string(),
 });
@@ -38,10 +38,10 @@ const orderUpdateSchemaValidation = Joi.object({
 
 
 const productSchemaValidation = Joi.object({
-  product_name : Joi.string(),
-  price:  Joi.string(),
-  quantity:  Joi.string(),
-  description: Joi.string(),
+  product_name : Joi.string().required(),
+  price:  Joi.string().required(),
+  quantity:  Joi.string().required(),
+  description: Joi.string().required(),
 });
 
 const productUpdateSchemaValidation = Joi.object({
