@@ -40,8 +40,20 @@
  * @swagger
  * tags:
  *   name: Admins
- *   description: The admins managing API
+ *   description: The admin managing API
  * /admins:
+ *   get:
+ *     summary: Lists all the admins
+ *     tags: [Admins]
+ *     responses:
+ *       200:
+ *         description: The list of the admins
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Admin'
  *   post:
  *     summary: Create a new admin
  *     tags: [Admins]
@@ -60,7 +72,69 @@
  *               $ref: '#/components/schemas/Admin'
  *       500:
  *         description: Some server error
+ * /admins/{id}:
+ *   get:
+ *     summary: Get the admin by id
+ *     tags: [Admins]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The admin id
+ *     responses:
+ *       200:
+ *         description: The admin response by id
+ *         contens:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Admin'
+ *       404:
+ *         description: The admin was not found
+ *   put:
+ *    summary: Update the admin by the id
+ *    tags: [Admins]
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: string
+ *        required: true
+ *        description: The admin id
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/Admin'
+ *    responses:
+ *      200:
+ *        description: The admin was updated
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Admin'
+ *      404:
+ *        description: The admin was not found
+ *      500:
+ *        description: Some error happened
+ *   delete:
+ *     summary: Remove the admin by id
+ *     tags: [Admins]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The admin id
  *
+ *     responses:
+ *       200:
+ *         description: The admin was deleted
+ *       404:
+ *         description: The admin was not found
  */
 
 

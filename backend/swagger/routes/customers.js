@@ -42,6 +42,18 @@
  *   name: Customers
  *   description: The customers managing API
  * /customers:
+ *   get:
+ *     summary: Lists all the customers
+ *     tags: [Customers]
+ *     responses:
+ *       200:
+ *         description: The list of the customers
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Customer'
  *   post:
  *     summary: Create a new customer
  *     tags: [Customers]
@@ -60,7 +72,69 @@
  *               $ref: '#/components/schemas/Customer'
  *       500:
  *         description: Some server error
+ * /customers/{id}:
+ *   get:
+ *     summary: Get the customer by id
+ *     tags: [Customers]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The customer id
+ *     responses:
+ *       200:
+ *         description: The customer response by id
+ *         contens:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Customer'
+ *       404:
+ *         description: The customer was not found
+ *   put:
+ *    summary: Update the customer by the id
+ *    tags: [Customers]
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: string
+ *        required: true
+ *        description: The customer id
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/Customer'
+ *    responses:
+ *      200:
+ *        description: The customer was updated
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Customer'
+ *      404:
+ *        description: The customer was not found
+ *      500:
+ *        description: Some error happened
+ *   delete:
+ *     summary: Remove the customer by id
+ *     tags: [Customers]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The customer id
  *
+ *     responses:
+ *       200:
+ *         description: The customer was deleted
+ *       404:
+ *         description: The customer was not found
  */
 
 
