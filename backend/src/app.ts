@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from "express";
+import express from "express";
 import { connectMongoDB } from "./config/connection";
 import customerRote from "./route/customer.route";
 import orderRote from "./route/order.route";

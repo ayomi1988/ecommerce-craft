@@ -1,4 +1,4 @@
-import { Grid,FormHelperText, InputLabel, FilledInput } from '@mui/material';
+import { Grid,FormHelperText,  FilledInput } from '@mui/material';
 import { Controller,Control } from 'react-hook-form';
 
 type CraftsFields = {

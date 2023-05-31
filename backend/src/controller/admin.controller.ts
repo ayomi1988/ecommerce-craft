@@ -11,7 +11,6 @@ import {
   adminValidation,
   adminSchemaValidation,
   adminUpdateSchemaValidation,
-  adminloginUpdateSchemaValidation,
 } from "../validation/validationSchema";
 import { log } from "../logs/logger";
 import {

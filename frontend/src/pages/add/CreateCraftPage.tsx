@@ -47,7 +47,6 @@ const CraftAction = () => {
     control,
     formState: { errors },
     reset,
-    setError,
   } = useForm<Craft>({
     resolver: yupResolver(ValidationSchema),
     defaultValues: {

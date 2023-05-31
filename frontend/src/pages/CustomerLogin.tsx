@@ -8,7 +8,7 @@ import { Container, Grid } from "@mui/material";
 import { useAppDispatch } from "../store/useDispatch";
 import { useSelector } from "react-redux";
 import CustomerForm from "../components/organisms/login/CustomerForm";
-import { fetchCustomerById, createCustomer, fetchCustomers } from "../store/customerLogin/CustomerSlice";
+import { fetchCustomerById} from "../store/customerLogin/CustomerSlice";
 import { unwrapResult } from "@reduxjs/toolkit";
 
 export type Customer = {
@@ -45,7 +45,6 @@ const CustomerLogin = () => {
     control,
     formState: { errors },
     reset,
-    setError,
   } = useForm<Customer>({
     resolver: yupResolver(ValidationSchema),
     defaultValues: {

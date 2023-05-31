@@ -1,18 +1,13 @@
-import React, { useRef, useEffect, useState } from "react";
-import { Grid, Stack, Button } from "@mui/material";
-import { confirmAlert } from "react-confirm-alert";
+import React, { useRef, useEffect } from "react";
+import { Grid, Stack } from "@mui/material";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../../store/useDispatch";
-import { fetchCrafts, deleteCraft, fetchCraftById } from "../../../store/craft/CraftSlice";
+import { fetchCrafts} from "../../../store/craft/CraftSlice";
 import Loader from "../../atoms/Loader";
 import "react-confirm-alert/src/react-confirm-alert.css";
-import { unwrapResult } from "@reduxjs/toolkit";
 import { debounce } from "lodash";
-import { useNavigate, Link } from "react-router-dom";
-import {AlertMessage} from '../../atoms/Alerts';
+import { useNavigate} from "react-router-dom";
 import CraftGrid from '../../molecules/gridItem/GridItem';
-import OrderAction from '../../../pages/add/CreateOrder';
-import {ButtonGrid, ButtonList} from '../../atoms/Button'
 
 
 export type clientView = {
@@ -42,7 +37,6 @@ export type clientViewList = {
 
 export default function ClientData() {  
   const dispatch = useAppDispatch();
-  const [isView, setIsView] = useState(true);
   const navigate = useNavigate();
 
 
@@ -57,7 +51,7 @@ export default function ClientData() {
   ).current;
 
   useEffect(() => {
-   // throw Error();
+  
     getCraftsLists();
   }, [getCraftsLists]);
 

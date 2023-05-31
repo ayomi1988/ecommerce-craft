@@ -46,9 +46,9 @@ describe("PUT/crafts/products", () => {
   });
   afterAll(async () => {
     const response:any = await supertest(URL).get("/crafts/products");
-   //console.log(response.body.data);
+  
     const lastItem = response.body.data[response.body.data.length - 1];
-  //  console.log(lastItem);
+  
     await supertest(URL).delete(`/crafts/products/${lastItem._id}`);
   });
   it("should update item if it exists", async () => {

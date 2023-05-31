@@ -1,6 +1,6 @@
 
 
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import  Grid  from "@mui/material/Grid";
 import  Stack  from "@mui/material/Stack";
 import { confirmAlert } from "react-confirm-alert";
@@ -38,7 +38,7 @@ export type CustomerList = {
 export default function CustomerData() {  
   console.log(1);
   const dispatch = useAppDispatch();
-  const [isView, setIsView] = useState(true);
+ 
   const navigate = useNavigate();
 
 
@@ -97,12 +97,7 @@ export default function CustomerData() {
   };
 
 
- // changing grid to list and list to grid action
 
- 
- const ChangingView = () => {
-  setIsView(!isView);
-};
 
   if (loading) {
     return <Loader />;

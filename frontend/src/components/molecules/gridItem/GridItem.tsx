@@ -1,4 +1,4 @@
-import { Grid, Typography, CardContent, CardActions, Card,  CardMedia } from "@mui/material";
+import { Grid, Typography, CardContent, CardActions, Card } from "@mui/material";
 import { ViewDetail } from "../../atoms/Button"; 
 
 

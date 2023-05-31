@@ -1,7 +1,6 @@
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Outlet } from 'react-router-dom';
-import TitleBar from "../molecules/titleBar/BackEndTitlebar";
 import { Container } from "@mui/material";
 import ErrorBoundary from '../../components/atoms/ErrorBoundary'
 

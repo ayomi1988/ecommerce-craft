@@ -8,7 +8,7 @@ import { Container, Grid } from "@mui/material";
 import { useAppDispatch } from "../store/useDispatch";
 import { useSelector } from "react-redux";
 import AdminForm from "../components/organisms/login/AdminForm";
-import { fetchAdminById, createAdmin, fetchAdmins } from "../store/adminLogin/AdminSlice";
+import { fetchAdminById} from "../store/adminLogin/AdminSlice";
 import { unwrapResult } from "@reduxjs/toolkit";
 
 export type Admin = {
@@ -45,7 +45,6 @@ const AdminLogin = () => {
     control,
     formState: { errors },
     reset,
-    setError,
   } = useForm<Admin>({
     resolver: yupResolver(ValidationSchema),
     defaultValues: {

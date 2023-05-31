@@ -9,7 +9,6 @@ import { useAppDispatch } from "../../store/useDispatch";
 import { useSelector } from "react-redux";
 import OrderForm from "../../components/organisms/addForm/OrderForm";
 import { fetchOrderById, createOrder, updateOrder } from "../../store/order/OrderSlice";
-import { fetchCraftById } from "../../store/craft/CraftSlice";
 import { unwrapResult } from "@reduxjs/toolkit";
 
 export type Order = {
@@ -51,7 +50,6 @@ const OrderAction = () => {
     control,
     formState: { errors },
     reset,
-    setError,
   } = useForm<Order>({
     resolver: yupResolver(ValidationSchema),
   });

@@ -46,9 +46,9 @@ describe("PUT/crafts/admin", () => {
   });
   afterAll(async () => {
     const response:any = await supertest(URL).get("/crafts/admin");
-   //console.log(response.body.data);
+  
     const lastItem = response.body.data[response.body.data.length - 1];
-  //  console.log(lastItem);
+ 
     await supertest(URL).delete(`/crafts/admin/${lastItem._id}`);
   });
   it("should update item if it exists", async () => {

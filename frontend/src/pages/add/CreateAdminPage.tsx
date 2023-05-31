@@ -47,7 +47,6 @@ const AdminAction = () => {
     control,
     formState: { errors },
     reset,
-    setError,
   } = useForm<Admin>({
     resolver: yupResolver(ValidationSchema),
     defaultValues: {

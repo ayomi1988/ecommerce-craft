@@ -1,6 +1,4 @@
-import React from 'react'
-import {AppBar, Box, Toolbar, } from '@mui/material';
-import Title from '../../atoms/Title';
+import {AppBar, Toolbar, } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';

@@ -1,6 +1,5 @@
 import { Button } from "@mui/material";
 import { useNavigate } from 'react-router-dom';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import DeleteIcon from '@mui/icons-material/Delete';
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 import AppsIcon from '@mui/icons-material/Apps';

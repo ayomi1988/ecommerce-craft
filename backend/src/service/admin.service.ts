@@ -1,8 +1,7 @@
 import { Admins } from "../model/admin.model";
 import { log } from "../logs/logger";
 import { Admin } from "../interface/interface";
-import { isEmpty } from "cypress/types/lodash";
-var md5 = require('md5');
+const md5 = require('md5');
 
 /**
  * Delete itesm from DB by id

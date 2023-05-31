@@ -1,7 +1,7 @@
 import { Customers } from "../model/customer.model";
 import { log } from "../logs/logger";
 import { Customer } from "../interface/interface";
-var md5 = require('md5');
+const md5 = require('md5');
 
 /**
  * Delete itesm from DB by id

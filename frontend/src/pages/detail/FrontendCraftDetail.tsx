@@ -8,8 +8,8 @@ import { Container, Grid } from "@mui/material";
 import { useAppDispatch } from "../../store/useDispatch";
 import { useSelector } from "react-redux";
 import CraftInfo from "../../components/organisms/clientView/frontDetail";
-import { fetchCraftById, createCraft, updateCraft } from "../../store/craft/CraftSlice";
-import { fetchOrderById, createOrder, updateOrder } from "../../store/order/OrderSlice";
+import { fetchCraftById, updateCraft} from "../../store/craft/CraftSlice";
+import {updateOrder } from "../../store/order/OrderSlice";
 import { unwrapResult } from "@reduxjs/toolkit";
 
 export type Craft = {
@@ -60,6 +60,11 @@ const FrontendCraftD = () => {
       price: "",
       quantity: "",
       description: "",
+      
+  first_name: "",
+  email: "",
+  order_number : "",
+  total: "",
     },
   });
 
@@ -98,9 +103,9 @@ if (singleRecord) {
 
   const onSubmit = async (data: Craft) => {
     if (id) {
-      await dispatch(updateOrder({ ...data, _id: id }));
+      await dispatch(updateCraft({ ...data, _id: id }));
       reset();
-      navigate("/craft");
+      navigate("/crafts");
       AlertMessage('updated Successfully','success');
     } 
   };

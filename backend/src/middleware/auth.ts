@@ -1,5 +1,5 @@
 import * as jwt from 'jsonwebtoken';
-//import * as config from 'config';
+
 import { Request, Response, NextFunction } from 'express';
 import {Admins} from '../model/admin.model';
 

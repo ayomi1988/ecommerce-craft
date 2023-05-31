@@ -8,7 +8,7 @@ import { Container, Grid } from "@mui/material";
 import { useAppDispatch } from "../../store/useDispatch";
 import { useSelector } from "react-redux";
 import EditCustomerForm from "../../components/organisms/editForm/EditCustomer";
-import { fetchCustomerById, createCustomer, updateCustomer } from "../../store/customer/CustomerSlice";
+import { fetchCustomerById, updateCustomer } from "../../store/customer/CustomerSlice";
 import { unwrapResult } from "@reduxjs/toolkit";
 
 export type Customer = {

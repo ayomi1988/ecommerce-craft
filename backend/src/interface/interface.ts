@@ -2,7 +2,7 @@ export interface Customer {
   first_name: string;
   user_name: string;
   email: string;
-  password: String;
+  password: string;
 }
 
 export interface ICustomer {
@@ -39,7 +39,7 @@ export interface Admin {
   first_name: string;
   user_name: string;
   email: string;
-  password: String;
+  password: string;
 }
 
 export interface IAdmin {
@@ -48,7 +48,7 @@ export interface IAdmin {
 
 export interface Adminlogin {
   user_name: string;
-  password: String;
+  password: string;
 }
 
 export interface IAdminlogin {

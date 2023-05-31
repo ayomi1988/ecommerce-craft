@@ -1,18 +1,16 @@
-import React, { useRef, useEffect, useState } from "react";
-import { Grid, Stack, Button } from "@mui/material";
+import React, { useRef, useEffect } from "react";
+import { Grid, Stack } from "@mui/material";
 import { confirmAlert } from "react-confirm-alert";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../../store/useDispatch";
-import { fetchAdmins, deleteAdmin, fetchAdminById } from "../../../store/admin/AdminSlice";
+import { fetchAdmins, deleteAdmin } from "../../../store/admin/AdminSlice";
 import Loader from "../../atoms/Loader";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { unwrapResult } from "@reduxjs/toolkit";
 import { debounce } from "lodash";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {AlertMessage} from '../../atoms/Alerts';
-import GridItem from '../../molecules/gridItem/GridItem';
 import AdminListTable from '../../molecules/table/AdminsTable';
-import {ButtonGrid, ButtonList} from '../../atoms/Button'
 
 
 export type admin = {
@@ -37,7 +35,6 @@ export type AdminList = {
 
 export default function AdminData() {  
   const dispatch = useAppDispatch();
-  const [isView, setIsView] = useState(true);
   const navigate = useNavigate();
 
 
@@ -52,7 +49,7 @@ export default function AdminData() {
   ).current;
 
   useEffect(() => {
-   // throw Error();
+
     getAdminsLists();
   }, [getAdminsLists]);
 
@@ -97,12 +94,6 @@ export default function AdminData() {
   };
 
 
- // changing grid to list and list to grid action
-
- 
-  const ChangingView = () => {
-    setIsView(!isView);
-  };
 
   if (loading) {
     return <Loader />;

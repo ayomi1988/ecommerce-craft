@@ -1,0 +1,6 @@
+projectKey=crafts-frontend-ayomi
+serverUrl=https://sonarqube.swiveltech.lk
+serverVersion=9.9.0.65466
+dashboardUrl=https://sonarqube.swiveltech.lk/dashboard?id=crafts-frontend-ayomi
+ceTaskId=AYhHO-y8c4fNtMjDabk3
+ceTaskUrl=https://sonarqube.swiveltech.lk/api/ce/task?id=AYhHO-y8c4fNtMjDabk3

@@ -1,18 +1,17 @@
-import React, { useRef, useEffect, useState } from "react";
-import { Grid, Stack, Button } from "@mui/material";
+import React, { useRef, useEffect } from "react";
+import { Grid, Stack } from "@mui/material";
 import { confirmAlert } from "react-confirm-alert";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../../store/useDispatch";
-import { fetchCrafts, deleteCraft, fetchCraftById } from "../../../store/craft/CraftSlice";
+import { fetchCrafts, deleteCraft } from "../../../store/craft/CraftSlice";
 import Loader from "../../atoms/Loader";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { unwrapResult } from "@reduxjs/toolkit";
 import { debounce } from "lodash";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {AlertMessage} from '../../atoms/Alerts';
-import GridItem from '../../molecules/gridItem/GridItem';
 import CraftsListTable from '../../molecules/table/CraftsTable';
-import {ButtonGrid, ButtonList, ButtonBack} from '../../atoms/Button'
+import {ButtonBack} from '../../atoms/Button'
 
 
 export type Craft = {
@@ -37,7 +36,7 @@ export type CraftList = {
 
 export default function CraftsData() {  
   const dispatch = useAppDispatch();
-  const [isView, setIsView] = useState(true);
+ 
   const navigate = useNavigate();
 
 
@@ -52,7 +51,7 @@ export default function CraftsData() {
   ).current;
 
   useEffect(() => {
-   // throw Error();
+ 
     getCraftsLists();
   }, [getCraftsLists]);
 
@@ -97,12 +96,7 @@ export default function CraftsData() {
   };
 
 
- // changing grid to list and list to grid action
 
- 
-  const ChangingView = () => {
-    setIsView(!isView);
-  };
 
   if (loading) {
     return <Loader />;

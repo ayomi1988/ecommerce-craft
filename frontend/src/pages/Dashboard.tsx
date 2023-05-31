@@ -9,7 +9,6 @@ import CustomerDetails from "../components/organisms/details/CustomerDetails";
 import OrderDetails from "../components/organisms/details/OrderDetails";
 import CraftsDetails from "../components/organisms/details/CraftsDetails";
 import AdminDetails from "../components/organisms/details/AdminDetails";
-import TitleBar from "../components/molecules/titleBar/BackEndTitlebar";
 
 interface TabPanelProps {
   children?: React.ReactNode;

@@ -47,7 +47,6 @@ const CustomerAction = () => {
     control,
     formState: { errors },
     reset,
-    setError,
   } = useForm<Customer>({
     resolver: yupResolver(ValidationSchema),
     defaultValues: {

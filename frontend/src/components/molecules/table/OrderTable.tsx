@@ -1,6 +1,5 @@
-import {Container, Grid, TableHead, TableRow, TableContainer, Table, TableBody, Paper, TableCell, tableCellClasses} from "@mui/material";
+import {Container, TableHead, TableRow, TableContainer, Table, TableBody, Paper, TableCell, tableCellClasses} from "@mui/material";
 import { styled } from '@mui/material/styles';
-import { DeleteButton, ButtonEdit } from "../../atoms/Button"; 
 
 
 export type OrderListType = {
@@ -24,7 +23,7 @@ export type OrderListType = {
     deleteOrder,
     redirectToEdit,
   }: OrderListType) => {
-    //console.log(order);
+ 
     return (
       <Container sx={{marginTop: '60px'}}> 
       <TableContainer component={Paper}>

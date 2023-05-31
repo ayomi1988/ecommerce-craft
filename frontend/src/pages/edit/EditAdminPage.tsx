@@ -8,7 +8,7 @@ import { Container, Grid } from "@mui/material";
 import { useAppDispatch } from "../../store/useDispatch";
 import { useSelector } from "react-redux";
 import EditAdminForm from "../../components/organisms/editForm/EditAdmin";
-import { fetchAdminById, createAdmin, updateAdmin } from "../../store/admin/AdminSlice";
+import { fetchAdminById, updateAdmin } from "../../store/admin/AdminSlice";
 import { unwrapResult } from "@reduxjs/toolkit";
 
 export type Admin = {

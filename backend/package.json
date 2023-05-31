@@ -10,7 +10,8 @@
     "prod": "ts-node dist/app.js",
     "build": "tsc -p .",
     "test": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "sonar": "node sonar-project.js"
   },
   "keywords": [],
   "author": "Ayomi",
@@ -33,6 +34,7 @@
     "morgan": "^1.10.0",
     "nanoid": "^4.0.2",
     "nodemon": "^2.0.22",
+    "sonarqube-scanner": "^3.0.1",
     "supertest": "^6.3.3",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^4.6.3",

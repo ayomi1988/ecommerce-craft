@@ -1,5 +1,4 @@
 import axios,{ AxiosError } from "axios";
-import validator from 'validator';
 
 import {
   BASE_URL,
@@ -11,10 +10,10 @@ import {
 
 type Customer = {
   _id?: string;
-  first_name :String;
-  user_name: String;
-  email: String;
-  password: String;
+  first_name :string;
+  user_name: string;
+  email: string;
+  password: string;
 }
 
 const customerApi = axios.create({

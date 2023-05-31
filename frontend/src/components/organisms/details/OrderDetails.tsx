@@ -1,18 +1,16 @@
-import React, { useRef, useEffect, useState } from "react";
-import { Grid, Stack, Button } from "@mui/material";
+import React, { useRef, useEffect } from "react";
+import { Grid, Stack } from "@mui/material";
 import { confirmAlert } from "react-confirm-alert";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../../store/useDispatch";
-import { fetchOrders, deleteOrder, fetchOrderById } from "../../../store/order/OrderSlice";
+import { fetchOrders, deleteOrder } from "../../../store/order/OrderSlice";
 import Loader from "../../atoms/Loader";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { unwrapResult } from "@reduxjs/toolkit";
 import { debounce } from "lodash";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {AlertMessage} from '../../atoms/Alerts';
-import GridItem from '../../molecules/gridItem/GridItem';
 import OrderListTable from '../../molecules/table/OrderTable';
-import {ButtonGrid, ButtonList} from '../../atoms/Button'
 
 
 export type Order = {
@@ -40,7 +38,7 @@ export type OrderList = {
 
 export default function OrderData() {  
   const dispatch = useAppDispatch();
-  const [isView, setIsView] = useState(true);
+
   const navigate = useNavigate();
 
 
@@ -48,7 +46,7 @@ export default function OrderData() {
 
   const getOrdersLists = useRef(
     debounce(() => {      
-     // console.log(fetchOrders());
+ 
       dispatch(fetchOrders())
         .unwrap()
         .then((data) => {})
@@ -56,7 +54,7 @@ export default function OrderData() {
   ).current;
 
   useEffect(() => {
-   // throw Error();
+
   
     getOrdersLists();
   }, [getOrdersLists]);
@@ -102,12 +100,7 @@ export default function OrderData() {
   };
 
 
- // changing grid to list and list to grid action
 
- 
-  const ChangingView = () => {
-    setIsView(!isView);
-  };
 
   if (loading) {
     return <Loader />;

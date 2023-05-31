@@ -1,6 +1,6 @@
 import { Schema,model } from "mongoose";
 import { Product } from "../interface/interface";
-import validator from 'validator';
+
 
 const ProductSchema = new Schema<Product>(
     {

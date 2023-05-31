@@ -10,7 +10,6 @@ import EditCustomerPage from './pages/edit/EditCustomerPage';
 import EditAdminPage from './pages/edit/EditAdminPage';
 import CraftAction from './pages/add/CreateCraftPage';
 import AdminAction from './pages/add/CreateAdminPage';
-import OrderAction from './pages/add/CreateOrder'; // Buy
 import OrderDetails from "./components/organisms/details/OrderDetails";
 import CustomerAction from './pages/add/CreateCustomerPage';
 import CustomerDetails from "./components/organisms/details/CustomerDetails";

@@ -1,4 +1,4 @@
-import { CardContent, Card, Grid, Toolbar, Container, Hidden, HiddenProps } from "@mui/material";
+import { CardContent, Card, Grid, Toolbar, Container, Hidden } from "@mui/material";
 import { Control, FieldErrorsImpl } from "react-hook-form";
 import { FormEventHandler } from "react";
 import {InputField, InputFieldDisabled, InputFieldHidden} from '../../molecules/inputField/craftDetailFields';

@@ -8,7 +8,7 @@ import { Container, Grid } from "@mui/material";
 import { useAppDispatch } from "../../store/useDispatch";
 import { useSelector } from "react-redux";
 import EditCraftForm from "../../components/organisms/editForm/EditCraft";
-import { fetchCraftById, createCraft, updateCraft } from "../../store/craft/CraftSlice";
+import { fetchCraftById, updateCraft } from "../../store/craft/CraftSlice";
 import { unwrapResult } from "@reduxjs/toolkit";
 
 export type Craft = {
