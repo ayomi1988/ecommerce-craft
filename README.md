@@ -25,6 +25,15 @@ npm run start
 npm run test
 ```
 
+Swagger Document
+ ```bash
+ cd backend
+ cd swagger
+ npm run start
+ 
+ http://localhost:3000/api-docs
+ ```
+
 # API Document
 
 
