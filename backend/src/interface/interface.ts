@@ -36,9 +36,7 @@ export interface IProduct {
 }
 
 export interface Admin {
-  first_name: string;
   user_name: string;
-  email: string;
   password: string;
 }
 

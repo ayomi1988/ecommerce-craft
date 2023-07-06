@@ -7,8 +7,6 @@ import {SignupButton, ButtonBack} from "../../atoms/Button";
 
 type Admin = {
     _id?: string;
-    first_name: string;
-    email: string;
     user_name: string;
     password: string;
   }
@@ -42,23 +40,11 @@ const AdminForm = ({
     <form onSubmit={handleSubmit}  id="submitemp">
       <Card>
         <CardContent data-cy="card-container">
-          <InputField data-test="empf-name"
-            label={"First Name"}
-            titleName={"first_name"}
-            control={control}
-            error={errors?.first_name?.message}            
-          />
           <InputField data-testid="empf-namel"
             label={"User Name"}
             titleName={"user_name"}
             control={control}
             error={errors?.user_name?.message}           
-          />
-          <InputField data-testid="empf-email"
-            label={"Email"}
-            titleName={"email"}
-            control={control}
-            error={errors?.email?.message}            
           />
           <InputField data-testid="empf-number"
             label={"Password"}

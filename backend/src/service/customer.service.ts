@@ -24,7 +24,7 @@ const deleteCustomer = async (id: string) => {
  */
 const getAllCustomers = async () => {
   try {
-    console.log("xxx");
+    //console.log("xxx");
     return await Customers.find();
   } catch (e) {
     log.info(e);
@@ -64,7 +64,7 @@ const customerUserLogin = async (value: { user_name: any; password: any; }) => {
       throw Error;
     }else{
 
-      console.log({singleAdmin});
+      //console.log({singleAdmin});
 
       const { _id, first_name, email, user_name } =
         singleAdmin;
@@ -129,7 +129,7 @@ const updateCustomerData = async (value: Customer, id: string) => {
         if (err) {
           throw err;
         } else {
-          console.log("Updated User : ", docs);
+          //console.log("Updated User : ", docs);
         }
       }
     );

@@ -72,6 +72,9 @@ export default function DrawerAppBar(props: Props) {
             Crafts
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+          <NavButton data-cy="admin"
+      name={"Admin"}
+      redirectPath={"/dashboard/login"}/>
           <NavButton data-cy="signin"
       name={"Sign In"}
       redirectPath={"/crafts/signin"}

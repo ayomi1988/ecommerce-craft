@@ -13,9 +13,7 @@ import { unwrapResult } from "@reduxjs/toolkit";
 
 export type Admin = {
   _id?: string;
-  first_name: string;
   user_name: string;
-  email: string;
   password: string;
 }
 
@@ -50,9 +48,7 @@ const AdminAction = () => {
   } = useForm<Admin>({
     resolver: yupResolver(ValidationSchema),
     defaultValues: {
-      first_name: "",
       user_name: "",
-      email: "",
       password: "",
     },
   });
@@ -68,12 +64,10 @@ const AdminAction = () => {
         });
 
       if (singleRecord) {
-        const { first_name, user_name, email, password } =
+        const { user_name, password } =
           singleRecord;
         const data = {
-          first_name,
           user_name,
-          email,
           password,
         };
         reset(data);

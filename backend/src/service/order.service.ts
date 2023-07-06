@@ -23,7 +23,7 @@ const deleteOrder = async (id: string) => {
  */
 const getAllOrders = async () => {
   try {
-    console.log("xxx");
+    //console.log("xxx");
     return await Orders.find();
   } catch (e) {
     log.info(e);
@@ -107,7 +107,7 @@ const updateOrderData = async (value: Order, id: string) => {
         if (err) {
           throw err;
         } else {
-          console.log("Updated User : ", docs);
+        //  console.log("Updated User : ", docs);
         }
       }
     );

@@ -79,7 +79,7 @@ const getadmById = async (req: Request, res: any) => {
  */
 const createAAdmin = async (req: Request, res: Response) => {
   const { error, value } = adminSchemaValidation.validate(req.body);
-  console.log(error);
+ // console.log(error);
   if (error) {
     errorsApiResponse(res, error.details, "Validation failed.", 409);
   }
@@ -124,9 +124,9 @@ const loginAdmin = async (req: Request, res: any) => {
 
 const {user_name , password} = req.body;
 
-console.log(user_name);
+//console.log(user_name);
 
-console.log(password);
+//console.log(password);
 
     const data = await adminUserLogin(req.body);
     successApiResponse(res, data, null, 200);

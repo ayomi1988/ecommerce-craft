@@ -78,7 +78,7 @@ const getprodById = async (req: Request, res: any) => {
  */
 const createAProduct = async (req: Request, res: Response) => {
   const { error, value } = productSchemaValidation.validate(req.body);
-  console.log(error);
+  //console.log(error);
   if (error) {
     errorsApiResponse(res, error.details, "Validation failed.", 409);
   }

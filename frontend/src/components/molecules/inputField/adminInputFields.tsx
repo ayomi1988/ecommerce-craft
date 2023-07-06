@@ -3,8 +3,6 @@ import { Controller,Control } from 'react-hook-form';
 
 type Adminfields = {
     _id?: string;
-    first_name: string;
-    email: string;
     user_name: string;
     password: string;
   }

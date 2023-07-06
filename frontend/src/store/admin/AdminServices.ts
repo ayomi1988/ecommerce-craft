@@ -12,9 +12,7 @@ import {
 
 type Admin = {
   _id?: string;
-  first_name :string;
   user_name: string;
-  email: string;
   password: string;
 }
 

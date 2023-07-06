@@ -78,7 +78,7 @@ const getordById = async (req: Request, res: any) => {
  */
 const createAOrder = async (req: Request, res: Response) => {
   const { error, value } = orderSchemaValidation.validate(req.body);
-  console.log(error);
+  //console.log(error);
   if (error) {
     errorsApiResponse(res, error.details, "Validation failed.", 409);
   }

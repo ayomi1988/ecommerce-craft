@@ -23,7 +23,7 @@ const deleteProduct = async (id: string) => {
  */
 const getAllProducts = async () => {
   try {
-    console.log("xxx");
+    //console.log("xxx");
     return await Products.find();
   } catch (e) {
     log.info(e);
@@ -98,7 +98,7 @@ const updateProductData = async (value: Product, id: string) => {
         if (err) {
           throw err;
         } else {
-          console.log("Updated User : ", docs);
+          //console.log("Updated User : ", docs);
         }
       }
     );

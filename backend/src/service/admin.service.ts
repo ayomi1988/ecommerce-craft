@@ -1,7 +1,8 @@
-import { Admins } from "../model/admin.model";
+const User = require('../model/admin.model')
 import { log } from "../logs/logger";
 import { Admin } from "../interface/interface";
 const md5 = require('md5');
+const jwt = require('jsonwebtoken')
 
 /**
  * Delete itesm from DB by id
@@ -9,7 +10,7 @@ const md5 = require('md5');
  */
 const deleteAdmin = async (id: string) => {
   try {
-    const deletedAdmin = await Admins.deleteOne({ _id: id });
+    const deletedAdmin = await User.deleteOne({ _id: id });
     if (deletedAdmin.deletedCount == 0) {
       throw new Error("Could not find");
     }
@@ -24,8 +25,8 @@ const deleteAdmin = async (id: string) => {
  */
 const getAllAdmins = async () => {
   try {
-    console.log("xxx");
-    return await Admins.find();
+    //console.log("xxx");
+    return await User.find();
   } catch (e) {
     log.info(e);
   }
@@ -38,17 +39,15 @@ const getAllAdmins = async () => {
  */
 const getAdminByID = async (id: string) => {
   try {
-    const singleAdmin = await Admins.findById(id).exec();
+    const singleAdmin = await User.findById(id).exec();
     if (!singleAdmin) {
       throw Error;
     }
-    const { _id, first_name, user_name, email, password } =
+    const { _id, user_name, password } =
       singleAdmin;
     return {
       id: _id,
-      first_name: first_name,
       user_name: user_name,
-      email: email,
       password: password
     };
   } catch (e) {
@@ -59,20 +58,27 @@ const getAdminByID = async (id: string) => {
 const adminUserLogin = async (value: { user_name: any; password: any; }) => {
   try {
     const { user_name, password } = value;
-    const singleAdmin = await Admins.findOne({ "user_name": user_name, "password": md5(password) } ).exec();
+    const singleAdmin = await User.findOne({ "user_name": user_name, "password": md5(password) } ).exec();
     if (!singleAdmin) {
       throw Error;
     }else{
 
-      console.log({singleAdmin});
+      //console.log({singleAdmin});
 
-      const { _id, first_name, email } =
+      const { _id,  user_name} =
         singleAdmin;
+
+        const jwtToken = await jwt.sign({
+          data: _id
+        }, process.env.JWT_SECRET, { expiresIn: '1d' });
+      
+        console.log(jwtToken);
+        // user.token = jwtToken;
+
       return {
         id: _id,
-        first_name: first_name,
         user_name: user_name,
-        email: email,
+        token: jwtToken
   
       };
 
@@ -91,13 +97,11 @@ const adminUserLogin = async (value: { user_name: any; password: any; }) => {
  * @returns
  */
 const createAdmin = async (value: Admin) => {
-  const { first_name, user_name, email, password } = value;
+  const { user_name, password } = value;
 
   try {
-    const newAdmin = new Admins({
-      first_name: first_name,
+    const newAdmin = new User({
       user_name: user_name,
-      email: email,
       password: md5(password)
     });
 
@@ -113,22 +117,20 @@ const createAdmin = async (value: Admin) => {
  * @param id
  */
 const updateAdminData = async (value: Admin, id: string) => {
-  const { first_name, user_name, email, password } = value;
+  const { user_name, password } = value;
   try {
 
-    Admins.findByIdAndUpdate(
+    User.findByIdAndUpdate(
       id,
       {
-        first_name: first_name,
         user_name: user_name,
-        email: email,
         password: password
       },
-      function (err, docs) {
+      function (err:any, docs:any) {
         if (err) {
           throw err;
         } else {
-          console.log("Updated User : ", docs);
+          //console.log("Updated User : ", docs);
         }
       }
     );

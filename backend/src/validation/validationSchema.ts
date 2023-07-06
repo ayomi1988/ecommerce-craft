@@ -54,18 +54,14 @@ const productUpdateSchemaValidation = Joi.object({
 
 
 const adminSchemaValidation = Joi.object({
-  first_name: Joi.string().required(),
   user_name: Joi.string().required(),
-  email: Joi.string().email().required(),
   password: Joi.string().required(),
 });
 
 
 const adminUpdateSchemaValidation = Joi.object({
   _id:Joi.string(),
-  first_name: Joi.string().optional(),
   user_name: Joi.string().optional(),
-  email: Joi.string().email().optional(),
   password: Joi.string(),
 });
 
