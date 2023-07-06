@@ -10,7 +10,7 @@
     "@mui/material": "^5.12.1",
     "@mui/styled-engine-sc": "^5.11.0",
     "@reduxjs/toolkit": "^1.9.1",
-    "@sentry/react": "^7.36.0",
+    "@sentry/react": "^7.57.0",
     "@sentry/tracing": "^7.49.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
